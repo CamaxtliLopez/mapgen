@@ -179,9 +179,10 @@ class Map {
             $a = $room_size - $wall_thickness;
             imagefilledrectangle($im, $r[0]-$a, $r[1]-$a, $r[0]+$a, $r[1]+$a, $color_yellow);
             $contents = $this->get_contents();
-            imagestring($im, 5, $r[0]-40, $r[1]-20, ($i+1).' '.$contents[0], $color_black);
+            $font=realpath('OpenSans-Regular.ttf');
+            imagettftext($im, 15, 0, $r[0]-45, $r[1]-7, $color_black, $font, ($i+1).' '.$contents[0]);
             if ($contents[1])
-                imagestring($im, 5, $r[0]-40, $r[1]+10, 'Treasure', $color_black);
+                imagettftext($im, 10, 0, $r[0]-27, $r[1]+20, $color_black, $font, 'Treasure');
         }
         // Draw the grid.
         $grid=25;
