@@ -21,8 +21,6 @@ class Map {
             $num_rooms = 100;
         $this->num_rooms = $num_rooms;
         $this->cli = $cli;
-        array_push($this->rooms, [0,0]);
-        $this->generate([0,0]);
     }
 
     // Generate the number of exits for a room.
@@ -62,32 +60,32 @@ class Map {
     // Generate map data.
     // We use simple grid coordinates with a unit of one
     // and the first room placed at the origin (x=0 y=0).
-    function generate($center) {
-        $exits = [];
-        for ($i = 0; $i < $this->num_exits(); $i++) {
-            $dest = $this->direction($center);
-            array_push($exits, $dest);
-        }
-        $current_room = count($this->rooms);
-        foreach ($exits as $dest) {
-            $tunnel = [$center, $dest];
-            if (in_array($dest, $this->rooms)) {
-                if (!in_array($tunnel, $this->tunnels))
-                    array_push($this->tunnels, $tunnel);
-            } else {
-                if (count($this->rooms) < $this->num_rooms) {
-                    array_push($this->rooms, $dest);
-                    $this->min_x = min($dest[0], $this->min_x);
-                    $this->max_x = max($dest[0], $this->max_x);
-                    $this->min_y = min($dest[1], $this->min_y);
-                    $this->max_y = max($dest[1], $this->max_y);
+    function generate() {
+        array_push($this->rooms, [0,0]);
+        foreach($this->rooms as &$center) {
+            $exits = [];
+            for ($i = 0; $i < $this->num_exits(); $i++) {
+                $dest = $this->direction($center);
+                array_push($exits, $dest);
+            }
+            foreach ($exits as $dest) {
+                $tunnel = [$center, $dest];
+                if (in_array($dest, $this->rooms)) {
                     if (!in_array($tunnel, $this->tunnels))
                         array_push($this->tunnels, $tunnel);
+                } else {
+                    if (count($this->rooms) < $this->num_rooms) {
+                        array_push($this->rooms, $dest);
+                        $this->min_x = min($dest[0], $this->min_x);
+                        $this->max_x = max($dest[0], $this->max_x);
+                        $this->min_y = min($dest[1], $this->min_y);
+                        $this->max_y = max($dest[1], $this->max_y);
+                        if (!in_array($tunnel, $this->tunnels))
+                            array_push($this->tunnels, $tunnel);
+                    }
                 }
             }
         }
-        for ($i=$current_room; $i < count($this->rooms); $i++)
-            $this->generate($this->rooms[$i]);
     }
 
     // Determine whether a given room contains treasure.
@@ -210,6 +208,7 @@ if (php_sapi_name() == "cli") {
 }
 
 $map = new Map($cli, $num_rooms);
+$map->generate();
 //var_dump($map);
 $map->render();
 
