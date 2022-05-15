@@ -121,10 +121,10 @@ class Map {
     // Render the map data.
     // The grid with unit size 1 must be scaled up to the desired resolution.
     function render() {
-        $unit = 200;
+        $unit = 180;
         $border = 10;
         $room_size = 50;
-        $tunnel_size = 10;
+        $tunnel_size = 6;
         $wall_thickness = 4;
         // Scale up the tunnels.
         $tunnels = [];
@@ -178,12 +178,12 @@ class Map {
             imagefilledrectangle($im, $r[0]-$a, $r[1]-$a, $r[0]+$a, $r[1]+$a, $color_yellow);
             $contents = $this->get_contents();
             $font=realpath('OpenSans-Regular.ttf');
-            imagettftext($im, 15, 0, $r[0]-45, $r[1]-7, $color_black, $font, ($i+1).' '.$contents[0]);
+            imagettftext($im, 12, 0, $r[0]-45, $r[1]+5, $color_black, $font, ($i+1).' '.$contents[0]);
             if ($contents[1])
-                imagettftext($im, 10, 0, $r[0]-27, $r[1]+20, $color_black, $font, 'Treasure');
+                imagettftext($im, 10, 0, $r[0]-27, $r[1]+25, $color_black, $font, 'Treasure');
         }
         // Draw the grid.
-        $grid=25;
+        $grid=20;
         for ($x=$border+$grid; $x<$w-$border; $x+=$grid)
             imageline($im, $x, $border, $x, $h-$border, $color_black);
         for ($y=$border+$grid; $y<$h-$border; $y+=$grid)
