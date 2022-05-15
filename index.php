@@ -11,6 +11,7 @@ $_SESSION['num_rooms'] = $_POST['num_rooms'];
    <body>
    <form method='POST'>
    <h2>Input number of rooms (between 2 and 100):</h2>
+   <p>(Sometimes you get fewer rooms than you requested, this happens when new rooms connect back to existing neighbors).</p>
  <input type="text" name="num_rooms">
  <input type="submit" value="Generate">
  </form>
