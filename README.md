@@ -4,7 +4,7 @@ WWN includes an algorithm for generating dungeons randomly.  mapgen is a PHP scr
 
 ![example map](map.example.png)
 
-You need to install php and gd, on ununtu the commands are:
+You need to install php and gd, on ubuntu the commands are:
 ```
 sudo apt install php7.4-cli
 sudo apt-get install php7.4-gd
