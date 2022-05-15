@@ -1,6 +1,6 @@
-# mapgen - Generate dungeon maps for the Worlds Without Number RPG
+# mapgen - Generate Point Crawls for the Worlds Without Number RPG
 
-WWN includes an algorithm for generating dungeons randomly.  mapgen is a PHP script which automates this algorithm.
+WWN includes an algorithm for generating point crawls randomly.  mapgen is a PHP script which automates this algorithm.
 
 ![example map](map.example.png)
 
