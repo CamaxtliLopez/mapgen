@@ -13,9 +13,9 @@ Then you can run the script in one of two ways, at the command line or in a serv
 
 To run the script at the command line, do:
 ```
-php mapgen.php x
+php mapgen.php 5 1 1 1 compass square "#6699FF" "#808080" "#FFFFCC" "#6699FF" "#000000" "#000000"
 ```
-Where x is the number of rooms in the dungeon (between 2 and 100).  It should generate the file map.png.
+It should generate the file map.png.
 
 To run the script in a server, do:
 ```
