@@ -194,7 +194,7 @@ $_SESSION['color_text'] = $_POST['color_text'];
 
 </main>
 
-<div class="m-3">
+<div class="m-3 text-center">
   <img src="mapgen.php" alt="generated image"/>
   <!--?php include 'print.php'; ?-->
 </div>
