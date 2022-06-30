@@ -278,19 +278,20 @@ if (php_sapi_name() == "cli") {
     $color_text = $argv[12];
 } else {
     $cli = false;
-    session_start();
-    $num_rooms = intval($_SESSION['num_rooms'] ?? 5);
-    $len_tunnel = intval($_SESSION['len_tunnel'] ?? 1);
+    if(!isset($_SESSION))
+        session_start();
+    $num_rooms = $_SESSION['num_rooms'];
+    $len_tunnel = $_SESSION['len_tunnel'];
     $draw_grid = ((!isset($_SESSION['submit']) && $_SESSION['draw_grid'] != 'off') || ($_SESSION['draw_grid'] === 'on')) ? true : false;
     $prune_dead_ends = ((!isset($_SESSION['submit']) && $_SESSION['prune_dead_ends'] != 'off') || ($_SESSION['prune_dead_ends'] === 'on')) ? true : false;
-    $tunnel_direction = $_SESSION['tunnel_direction'] ?? 'compass';
-    $room_shape = $_SESSION['room_shape'] ?? 'square';
-    $color_border = $_SESSION['color_border'] ?? '#6699FF';
-    $color_stone = $_SESSION['color_stone'] ?? '#808080';
-    $color_floor = $_SESSION['color_floor'] ?? '#FFFFCC';
-    $color_walls = $_SESSION['color_walls'] ?? '#6699FF';
-    $color_grid = $_SESSION['color_grid'] ?? '#000000';
-    $color_text = $_SESSION['color_text'] ?? '#000000';
+    $tunnel_direction = $_SESSION['tunnel_direction'];
+    $room_shape = $_SESSION['room_shape'];
+    $color_border = $_SESSION['color_border'];
+    $color_stone = $_SESSION['color_stone'];
+    $color_floor = $_SESSION['color_floor'];
+    $color_walls = $_SESSION['color_walls'];
+    $color_grid = $_SESSION['color_grid'];
+    $color_text = $_SESSION['color_text'];
 }
 
 $colors = [

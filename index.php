@@ -1,18 +1,18 @@
 <?php
 session_start();
-$_SESSION['submit'] = $_POST['submit'];
-$_SESSION['num_rooms'] = $_POST['num_rooms'];
-$_SESSION['len_tunnel'] = $_POST['len_tunnel'];
-$_SESSION['draw_grid'] = $_POST['draw_grid'];
-$_SESSION['prune_dead_ends'] = $_POST['prune_dead_ends'];
-$_SESSION['tunnel_direction'] = $_POST['tunnel_direction'];
-$_SESSION['room_shape'] = $_POST['room_shape'];
-$_SESSION['color_border'] = $_POST['color_border'];
-$_SESSION['color_stone'] = $_POST['color_stone'];
-$_SESSION['color_floor'] = $_POST['color_floor'];
-$_SESSION['color_walls'] = $_POST['color_walls'];
-$_SESSION['color_grid'] = $_POST['color_grid'];
-$_SESSION['color_text'] = $_POST['color_text'];
+$_SESSION['submit'] = isset($_POST['submit']) ? $_POST['submit'] : null;
+$_SESSION['num_rooms'] = $_POST['num_rooms'] ?? 5;
+$_SESSION['len_tunnel'] = $_POST['len_tunnel'] ?? 1;
+$_SESSION['draw_grid'] = $_POST['draw_grid'] ?? '';
+$_SESSION['prune_dead_ends'] = $_POST['prune_dead_ends'] ?? '';
+$_SESSION['tunnel_direction'] = $_POST['tunnel_direction'] ?? 'center';
+$_SESSION['room_shape'] = $_POST['room_shape'] ?? 'square';
+$_SESSION['color_border'] = $_POST['color_border'] ?? '#6699FF';
+$_SESSION['color_stone'] = $_POST['color_stone'] ?? '#808080';
+$_SESSION['color_floor'] = $_POST['color_floor'] ?? '#FFFFCC';
+$_SESSION['color_walls'] = $_POST['color_walls'] ?? '#6699FF';
+$_SESSION['color_grid'] = $_POST['color_grid'] ?? '#000000';
+$_SESSION['color_text'] = $_POST['color_text'] ?? '#000000';
 ?>
 <!doctype html>
 <html lang="en">
