@@ -153,13 +153,18 @@ class Map {
             return ['Empty', $this->get_treasure(2)];
     }
 
-    // A tunnel is a line which may be vertical, horizontal, or diagonal.
-    // Convert it into a polygon where $t is the desired thickness.
+    // Convert a line into a polygon with thickness $t * 2.
     function line_to_polygon($x1, $y1, $x2, $y2, $t) {
-        if ($y1==$y2)   // horizontal
-            return [$x1, $y1-$t, $x1, $y1+$t, $x2, $y2+$t, $x2, $y2-$t];
-        else            // vertical or diagonal
-            return [$x1-$t, $y1, $x1+$t, $y1, $x2+$t, $y2, $x2-$t, $y2];
+        $L = sqrt(($x1-$x2)*($x1-$x2)+($y1-$y2)*($y1-$y2));
+        $x1p = $x1 - $t * ($y2-$y1) / $L;
+        $x2p = $x2 - $t * ($y2-$y1) / $L;
+        $y1p = $y1 - $t * ($x1-$x2) / $L;
+        $y2p = $y2 - $t * ($x1-$x2) / $L;
+        $x1q = $x1 + $t * ($y2-$y1) / $L;
+        $x2q = $x2 + $t * ($y2-$y1) / $L;
+        $y1q = $y1 + $t * ($x1-$x2) / $L;
+        $y2q = $y2 + $t * ($x1-$x2) / $L;
+        return [$x1p, $y1p, $x1q, $y1q, $x2q, $y2q, $x2p, $y2p];
     }
 
     function get_color($im, $hex) {
