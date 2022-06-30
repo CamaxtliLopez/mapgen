@@ -190,6 +190,7 @@ $_SESSION['color_text'] = $_POST['color_text'];
     </div>
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Generate</button>
+  <input type="button" value="Reset" class="btn btn-primary" onClick="location.href=location.href">
 </form>
 
 </main>
