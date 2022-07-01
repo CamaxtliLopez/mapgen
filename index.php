@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['submit'] = isset($_POST['submit']) ? $_POST['submit'] : null;
+$_SESSION['submit'] = $_POST['submit'] ?? null;
 $_SESSION['num_rooms'] = $_POST['num_rooms'] ?? 5;
 $_SESSION['len_tunnel'] = $_POST['len_tunnel'] ?? 1;
 $_SESSION['draw_grid'] = $_POST['draw_grid'] ?? '';
@@ -175,17 +175,17 @@ $_SESSION['color_text'] = $_POST['color_text'] ?? '#000000';
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Colors</label>
     <div class="col-sm-10">
-      <input type="color" class="form-control-color" id="inputColorBorder" name="color_border" value="<?php echo isset($_POST['color_border']) ? $_POST['color_border'] : "#6699FF"; ?>" title="Choose border color">
+      <input type="color" class="form-control-color" id="inputColorBorder" name="color_border" value="<?php echo $_POST['color_border'] ?? "#6699FF"; ?>" title="Choose border color">
       <label for="inputColorBorder" class="form-label m-2">Border</label>
-      <input type="color" class="form-control-color" id="inputColorStone" name="color_stone" value="<?php echo isset($_POST['color_stone']) ? $_POST['color_stone'] : "#808080"; ?>" title="Choose stone color">
+      <input type="color" class="form-control-color" id="inputColorStone" name="color_stone" value="<?php echo $_POST['color_stone'] ?? "#808080"; ?>" title="Choose stone color">
       <label for="inputColorStone" class="form-label m-2">Stone</label>
-      <input type="color" class="form-control-color" id="inputColorFloor" name="color_floor" value="<?php echo isset($_POST['color_floor']) ? $_POST['color_floor'] : "#FFFFCC"; ?>" title="Choose floor color">
+      <input type="color" class="form-control-color" id="inputColorFloor" name="color_floor" value="<?php echo $_POST['color_floor'] ?? "#FFFFCC"; ?>" title="Choose floor color">
       <label for="inputColorFloor" class="form-label m-2">Floor</label>
-      <input type="color" class="form-control-color" id="inputColorWalls" name="color_walls" value="<?php echo isset($_POST['color_walls']) ? $_POST['color_walls'] : "#6699FF"; ?>" title="Choose wall color">
+      <input type="color" class="form-control-color" id="inputColorWalls" name="color_walls" value="<?php echo $_POST['color_walls'] ?? "#6699FF"; ?>" title="Choose wall color">
       <label for="inputColorWalls" class="form-label m-2">Walls</label>
-      <input type="color" class="form-control-color" id="inputColorGrid" name="color_grid" value="<?php echo isset($_POST['color_grid']) ? $_POST['color_grid'] : "#000000"; ?>" title="Choose grid color">
+      <input type="color" class="form-control-color" id="inputColorGrid" name="color_grid" value="<?php echo $_POST['color_grid'] ?? "#000000"; ?>" title="Choose grid color">
       <label for="inputColorGrid" class="form-label m-2">Grid</label>
-      <input type="color" class="form-control-color" id="inputColorText" name="color_text" value="<?php echo isset($_POST['color_text']) ? $_POST['color_text'] : "#000000"; ?>" title="Choose text color">
+      <input type="color" class="form-control-color" id="inputColorText" name="color_text" value="<?php echo $_POST['color_text'] ?? "#000000"; ?>" title="Choose text color">
       <label for="inputColorText" class="form-label m-2">Text</label>
     </div>
   </div>
