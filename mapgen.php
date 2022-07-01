@@ -79,11 +79,10 @@ class Map {
     }
 
     function direction($s) {
-        if ($this->tunnel_direction === 'random') {
+        if ($this->tunnel_direction === 'random')
             return $this->direction_random($s);
-        } else {
+        else
             return $this->direction_compass($s);
-        }
     }
 
     function edges($x) {
@@ -270,12 +269,14 @@ if (php_sapi_name() == "cli") {
     $prune_dead_ends = $argv[4];
     $tunnel_direction = $argv[5];
     $room_shape = $argv[6];
-    $color_border = $argv[7];
-    $color_stone = $argv[8];
-    $color_floor = $argv[9];
-    $color_walls = $argv[10];
-    $color_grid = $argv[11];
-    $color_text = $argv[12];
+    $colors = [
+        'border' => $argv[7],
+        'stone' => $argv[8],
+        'floor' => $argv[9],
+        'walls' => $argv[10],
+        'grid' => $argv[11],
+        'text' => $argv[12],
+    ];
 } else {
     $cli = false;
     if(!isset($_SESSION))
@@ -286,22 +287,15 @@ if (php_sapi_name() == "cli") {
     $prune_dead_ends = ((!isset($_SESSION['submit']) && $_SESSION['prune_dead_ends'] != 'off') || ($_SESSION['prune_dead_ends'] === 'on')) ? true : false;
     $tunnel_direction = $_SESSION['tunnel_direction'];
     $room_shape = $_SESSION['room_shape'];
-    $color_border = $_SESSION['color_border'];
-    $color_stone = $_SESSION['color_stone'];
-    $color_floor = $_SESSION['color_floor'];
-    $color_walls = $_SESSION['color_walls'];
-    $color_grid = $_SESSION['color_grid'];
-    $color_text = $_SESSION['color_text'];
+    $colors = [
+        'border' => $_SESSION['color_border'],
+        'stone' => $_SESSION['color_stone'],
+        'floor' => $_SESSION['color_floor'],
+        'walls' => $_SESSION['color_walls'],
+        'grid' => $_SESSION['color_grid'],
+        'text' => $_SESSION['color_text'],
+    ];
 }
-
-$colors = [
-    'border' => $color_border,
-    'stone' => $color_stone,
-    'floor' => $color_floor,
-    'walls' => $color_walls,
-    'grid' => $color_grid,
-    'text' => $color_text,
-];
 
 $map = new Map($cli, $num_rooms, $len_tunnel, $draw_grid, $prune_dead_ends, $tunnel_direction, $room_shape, $colors);
 $map->generate();
