@@ -263,19 +263,19 @@ class Map {
 
 if (php_sapi_name() == "cli") {
     $cli = true;
-    $num_rooms = intval($argv[1]);
-    $len_tunnel = intval($argv[2]);
-    $draw_grid = $argv[3];
-    $prune_dead_ends = $argv[4];
-    $tunnel_direction = $argv[5];
-    $room_shape = $argv[6];
+    $num_rooms = isset($argv[1]) ? intval($argv[1]) : 5;
+    $len_tunnel = isset($argv[2]) ? intval($argv[2]) : 1;
+    $draw_grid = $argv[3] ?? true;
+    $prune_dead_ends = $argv[4] ?? true;
+    $tunnel_direction = $argv[5] ?? 'center';
+    $room_shape = $argv[6] ?? 'square';
     $colors = [
-        'border' => $argv[7],
-        'stone' => $argv[8],
-        'floor' => $argv[9],
-        'walls' => $argv[10],
-        'grid' => $argv[11],
-        'text' => $argv[12],
+        'border' => $argv[7] ?? '#6699FF',
+        'stone' => $argv[8] ?? '#808080',
+        'floor' => $argv[9] ?? '#FFFFCC',
+        'walls' => $argv[10] ?? '#6699FF',
+        'grid' => $argv[11] ?? '#000000',
+        'text' => $argv[12] ?? '#000000',
     ];
 } else {
     $cli = false;
