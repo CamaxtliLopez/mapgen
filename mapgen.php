@@ -12,6 +12,7 @@ class Map {
     private $min_y = 0;
     private $max_y = 0;
 
+    // Ensure that $x is between $lo and $hi.
     function bounds($x, $lo, $hi) {
         if ($x < $lo)
             return $lo;
@@ -67,6 +68,7 @@ class Map {
             return [$s[0]-$l, $s[1]+$l];
     }
 
+    // Determine the end point of a tunnel at random.
     function direction_random($s) {
         $l = rand(1, $this->len_tunnel);
         $x=$s[0]+rand(-$l, $l);
@@ -78,6 +80,7 @@ class Map {
         return [$x, $y];
     }
 
+    // Return the end point of a tunnel given its start point.
     function direction($s) {
         if ($this->tunnel_direction === 'random')
             return $this->direction_random($s);
@@ -85,6 +88,7 @@ class Map {
             return $this->direction_compass($s);
     }
 
+    // Extend the borders of the map to contain the given point.
     function edges($x) {
         $this->min_x = min($x[0], $this->min_x);
         $this->max_x = max($x[0], $this->max_x);
@@ -166,6 +170,7 @@ class Map {
         return [$x1p, $y1p, $x1q, $y1q, $x2q, $y2q, $x2p, $y2p];
     }
 
+    // Allocate a color for the image.
     function get_color($im, $hex) {
         list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
         return imagecolorallocate($im, $r, $g, $b);
@@ -206,7 +211,6 @@ class Map {
         $color_walls = $this->get_color($im, $this->colors['walls']);
         $color_grid = $this->get_color($im, $this->colors['grid']);
         $color_text = $this->get_color($im, $this->colors['text']);
-
         // Draw the border.
         imagefilledrectangle($im, 0, 0, $w, $h, $color_border);
         // Draw the stone.
