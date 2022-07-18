@@ -2,7 +2,7 @@
 
 WWN includes an algorithm for generating point crawls randomly.  mapgen is a PHP script which automates this algorithm.
 
-![example map](map.example.png)
+![example map](img/default.png)
 
 You need to install php and gd, on ubuntu the commands are:
 ```
