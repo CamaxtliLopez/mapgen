@@ -98,16 +98,15 @@ $_SESSION['color_text'] = $_POST['color_text'] ?? '#000000';
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="examples.html">Examples</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
 <main class="container">
-  <div class="bg-light p-5 rounded mb-3">
-    <h1>Pointcrawl Generator</h1>
-    <p class="lead">WWN provides an algorithm for generating point crawls randomly.  This script automates that algorithm.</p>
-  </div>
 
 <form class="mb-3" method='POST'>
   <div class="row mb-3">

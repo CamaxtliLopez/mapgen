@@ -80,10 +80,10 @@
           <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">About</a>
+          <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="examples.html">Examples</a>
+          <a class="nav-link active" aria-current="page" href="#">Examples</a>
         </li>
       </ul>
     </div>
@@ -91,23 +91,72 @@
 </nav>
 
 <main class="container">
-  <div class="bg-light p-5 rounded mb-3">
-    <h1>Pointcrawl Generator</h1>
-    <p class="lead">WWN provides an algorithm for generating point crawls randomly.  This script automates that algorithm.</p>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Examples</h1>
+        <p class="lead text-muted">Here are some examples of point crawls generated with this script.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card shadow-sm pt-2">
+            <div class="text-center">
+            <a target="_blank" href="img/default.png">
+              <img class="rounded" height="225" src="img/default.png" alt="default">
+            </a>
+            <div class="card-body">
+              <p class="card-text">Default</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm pt-2">
+            <div class="text-center">
+            <a target="_blank" href="img/old_school_blue.png">
+              <img class="rounded" height="225" src="img/old_school_blue.png" alt="old school blue">
+            </a>
+            <div class="card-body">
+              <p class="card-text">Old school blue</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm pt-2">
+            <div class="text-center">
+            <a target="_blank" href="img/alien_hive.png">
+              <img class="rounded" height="225" src="img/alien_hive.png" alt="alien hive">
+            </a>
+            <div class="card-body">
+              <p class="card-text">Alien hive</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm pt-2">
+            <div class="text-center">
+            <a target="_blank" href="img/megadungeon.png">
+              <img class="rounded" height="225" src="img/megadungeon.png" alt="megadungeon">
+            </a>
+            <div class="card-body">
+              <p class="card-text">Megadungeon</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="text-start"><a href="https://sine-nomine-publishing.myshopify.com/collections/worlds-without-number">Worlds Without Number</a> (no affiliation to this web page) is a tabletop role playing game.  The rulebook includes an algorithm for randomly generating a point crawl (a set of nodes and connections comprising an exploration scenario).  This script automates that algorithm.  The source code for this page is available <a href="https://github.com/CamaxtliLopez/mapgen">here</a>.</p>
-  <p class="text-start">To save the generated image:</p>
-    <ul>
-      <li>On desktop - right click, save</li>
-      <li>On mobile - long press, save</li>
-    </ul>
-  <p class="text-start">Notes on usage:</p>
-    <ul>
-      <li>Sometimes the generated point crawl has fewer rooms than requested, this happens when the map connects back to itself</li>
-      <li>The setting Tunnel Direction=Random only takes effect when Max Tunnel Length is greater than one</li>
-    </ul>
-  <p class="text-start"></p>
-  <p class="text-start"><i>Pointcrawl generator version 0.2 released 7 July 2022.</i></p>
+
 </main>
 
   </body>
